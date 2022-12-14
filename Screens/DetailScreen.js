@@ -37,15 +37,7 @@ function DetailScreen({ route, navigation }) {
   useEffect(() => {}, []);
   return (
     <ScrollView style={styles.container}>
-      <View
-        style={{
-          padding: 60,
-          alignSelf: "center",
-          backgroundColor: "lightblue",
-          borderRadius: 100,
-          marginTop: 40,
-        }}
-      ></View>
+      <View style={styles.scrollContainer}></View>
       <Text style={styles.header}> زندگی نامه</Text>
       <View style={styles.listArea}>
         <FlatList
@@ -131,5 +123,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 18,
     margin: 5,
+  },
+  scrollContainer: {
+    padding: 60,
+    alignSelf: "center",
+    backgroundColor: "lightblue",
+    borderRadius: 100,
+    marginTop: 40,
   },
 });

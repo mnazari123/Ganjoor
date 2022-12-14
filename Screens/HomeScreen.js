@@ -56,8 +56,6 @@ function HomeScreen({ route, navigation }) {
     return (
       <View
         style={{
-          // backgroundColor: "#f5f5dc80",
-          // marginHorizontal: 2.5,
           borderLeftWidth: 2,
           borderColor: "white",
           flex: 1,
@@ -75,11 +73,6 @@ function HomeScreen({ route, navigation }) {
             marginTop: 20,
           }}
         ></View>
-        {/* <View style={{ flex: 1, alignSelf: "center" }}> */}
-        {/* <Image style={{}} source={{ uri: `${item.photo}` }} /> */}
-        {/* The photo link is not working, the above code could be replace after the solution is found for this part*/}
-        {/* </View> */}
-        {/* <Text>{item.photo}</Text> */}
         <View style={{ flex: 1.5 }}>
           <Text
             style={{
@@ -93,12 +86,7 @@ function HomeScreen({ route, navigation }) {
           </Text>
           <Text style={{ fontSize: 12 }}>{item.bio.substring(0, 215)}...</Text>
           <TouchableOpacity
-            style={{
-              backgroundColor: "#c03f2a",
-              width: 60,
-              borderRadius: 5,
-              paddingBottom: 2,
-            }}
+            style={styles.content}
             onPress={() => {
               navigation.navigate("Details", {
                 itemId: item.id,
@@ -106,15 +94,7 @@ function HomeScreen({ route, navigation }) {
               });
             }}
           >
-            <Text
-              style={{
-                alignSelf: "center",
-                color: "#e1dbc6",
-                fontSize: 11,
-              }}
-            >
-              بیشتر
-            </Text>
+            <Text style={styles.bioText}>بیشتر</Text>
           </TouchableOpacity>
         </View>
         {/* {renderRelics()} */}
@@ -163,16 +143,6 @@ function HomeScreen({ route, navigation }) {
             borderRadius: 5,
           }}
         >
-          {/* <ScrollView
-            horizontal={true}
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              borderRadius: 3,
-
-              // The scroll should become from right to left
-            }}
-          > */}
           <FlatList
             horizontal
             data={textData}
@@ -180,15 +150,6 @@ function HomeScreen({ route, navigation }) {
             key={(item) => item.id}
             style={{ alignSelf: "flex-end" }}
           />
-          {/* <View
-              style={{
-                backgroundColor: "aliceblue",
-                marginHorizontal: 2.5,
-                flex: 1,
-                width: 250,
-              }}
-            ></View> */}
-          {/* </ScrollView> */}
         </View>
       </View>
     </View>
@@ -214,5 +175,16 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     alignSelf: "center",
+  },
+  content: {
+    backgroundColor: "#c03f2a",
+    width: 60,
+    borderRadius: 5,
+    paddingBottom: 2,
+  },
+  bioText: {
+    alignSelf: "center",
+    color: "#e1dbc6",
+    fontSize: 11,
   },
 });
